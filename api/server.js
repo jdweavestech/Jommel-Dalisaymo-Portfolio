@@ -6,7 +6,7 @@ const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
 
-const filePath = './projects.json';
+const filePath = '../projects.json';
 
 // Ensure 'uploads' directory exists inside the 'public' folder
 const uploadsDir = path.resolve(__dirname, '../public/uploads');
@@ -38,7 +38,7 @@ module.exports = (req, res) => {
 
             // Handle file data if an image was uploaded
             if (req.file) {
-                projectData.img = `/uploads/${req.file.filename}`; // Save the public path to the image
+                projectData.img = `..public/uploads/${req.file.filename}`; // Save the public path to the image
             }
 
             // Add new project data
