@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="/assets/style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
@@ -24,33 +25,106 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
                         <span>Back to Home</span>
                     </a>
-                    <h4 class="cc-cert-header-title">Recent Projects</h4>
+                    <h4 class="cc-cert-header-title">All Projects</h4>
                 </div>
             </section>
+
+            <div class="cc-rp-wrap">
+                <div class="cc-rp-card-content">
+                    <div class="cc-rp-card-projects" id="cc-rp-projects">
+
+                    </div>
+                </div>
+            </div>
 
             <footer class="cc-footer">
                 <p class="cc-footer-copyright">© <span class="cc-footer-year"></span> Jommel Dalisaymo. All rights reserved.</p>
             </footer>
 
             <!-- RECENT PROJECTS MODAL -->
-            <div class="modal fade cc-card-reco-modal" id="ccrp1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ccrp1Label" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <a type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
-                            ...
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="cc-rp-project-modals" id="cc-rp-project-modals"></div>
 
         </div>
 
-
         <!-- SCRIPT -->
         <script src="/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+4
+        <script>
+            AOS.init({
+                duration: 500,
+                offset: 0,
+                easing: 'ease-in-out',
+                once: true 
+            });
+        </script>
+
+        <script>
+            async function loadProjects() {
+                try {
+                    const response = await fetch('https://jd-weaves-tech.vercel.app/api/projects');
+                    if (response.ok) {
+                        const projects = await response.json();
+
+                        const projectsContainer = document.getElementById('cc-rp-projects');
+                        const modalsContainer = document.getElementById('cc-rp-project-modals');
+                        projectsContainer.innerHTML = '';
+                        modalsContainer.innerHTML = '';
+
+                        projects.reverse().forEach((project, index) => {
+                            const delay = (index + 1) * 100;
+
+                            const projectCard = `
+                            <div class="cc-rp-card-project-card" data-aos="fade-up" data-aos-delay="${delay}">
+                                <a href="#ccrp${index + 1}" class="p-12" data-bs-toggle="modal" data-bs-target="#ccrp${index + 1}">
+                                    <h4 class="cc-rp-card-project-card-title">${project.title}</h4>
+                                    <p class="cc-rp-card-project-card-desc">${project.description}</p>
+                                    <p class="cc-rp-card-project-card-url">${project.url.replace(/^https?:\/\/(?:www\.)?/i, '')}</p>
+                                </a>
+                            </div>
+                            `;
+                            projectsContainer.innerHTML += projectCard;
+
+                            const projectModal = `
+                            <div class="modal fade cc-card-reco-modal" id="ccrp${index + 1}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ccrp${index + 1}Label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <img src="./uploads/${project.img}" alt="${project.title}" class="modal-image img-fluid">
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="cc-card-reco-modal-content-wrap">
+                                                        <h5 class="modal-title" id="ccrp${index + 1}Label">${project.title}</h5>
+                                                        <p class="modal-description">${project.description}</p>
+                                                        <p class="modal-stacks">${project.stacks.map(stack => `<span class="stack-item">${stack}</span>`).join(' ')}</p>
+                                                        <a href="${project.url}" class="modal-preview-btn" target="_blank">Live Preview <?xml version="1.0" encoding="utf-8"?><svg version="1.1" id="Layer_1" height="12" width="12" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.6 122.88" style="enable-background:new 0 0 122.6 122.88" xml:space="preserve"><g><path d="M110.6,72.58c0-3.19,2.59-5.78,5.78-5.78c3.19,0,5.78,2.59,5.78,5.78v33.19c0,4.71-1.92,8.99-5.02,12.09 c-3.1,3.1-7.38,5.02-12.09,5.02H17.11c-4.71,0-8.99-1.92-12.09-5.02c-3.1-3.1-5.02-7.38-5.02-12.09V17.19 C0,12.48,1.92,8.2,5.02,5.1C8.12,2,12.4,0.08,17.11,0.08h32.98c3.19,0,5.78,2.59,5.78,5.78c0,3.19-2.59,5.78-5.78,5.78H17.11 c-1.52,0-2.9,0.63-3.91,1.63c-1.01,1.01-1.63,2.39-1.63,3.91v88.58c0,1.52,0.63,2.9,1.63,3.91c1.01,1.01,2.39,1.63,3.91,1.63h87.95 c1.52,0,2.9-0.63,3.91-1.63s1.63-2.39,1.63-3.91V72.58L110.6,72.58z M112.42,17.46L54.01,76.6c-2.23,2.27-5.89,2.3-8.16,0.07 c-2.27-2.23-2.3-5.89-0.07-8.16l56.16-56.87H78.56c-3.19,0-5.78-2.59-5.78-5.78c0-3.19,2.59-5.78,5.78-5.78h26.5 c5.12,0,11.72-0.87,15.65,3.1c2.48,2.51,1.93,22.52,1.61,34.11c-0.08,3-0.15,5.29-0.15,6.93c0,3.19-2.59,5.78-5.78,5.78 c-3.19,0-5.78-2.59-5.78-5.78c0-0.31,0.08-3.32,0.19-7.24C110.96,30.94,111.93,22.94,112.42,17.46L112.42,17.46z"  fill="#fff"/></g></svg></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            `;
+                            modalsContainer.innerHTML += projectModal;
+                        });
+                    } else {
+                        console.error('Failed to fetch projects');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            }
+
+            window.onload = loadProjects;
+
+        </script>
+
     </body>
 </html>
