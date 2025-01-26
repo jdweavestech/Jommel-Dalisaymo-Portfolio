@@ -648,6 +648,12 @@ p
         border-radius: 4px;
         font-size: 14px;
         display: flex;
+        transition: all ease-in-out 300ms;
+    }
+    .cc-card-connect-btn:hover
+    {
+        transform: translateY(-4px);
+        box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
     }
     .cc-card-connect-socials-wrap
     {
