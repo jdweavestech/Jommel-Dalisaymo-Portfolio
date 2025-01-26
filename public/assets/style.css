@@ -695,6 +695,9 @@ p
         border-top: 1px solid var(--border);
         padding: 32px 0;
         padding-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     .cc-footer-copyright
     {
@@ -703,9 +706,24 @@ p
         font-weight: normal;
         font-size: 14px;
     }
-    @media only screen and (max-width: 425px)
+    .cc-credit
     {
-        .cc-footer-copyright
+        font-family: "Geist", serif;
+        color: var(--primary);
+        font-weight: normal;
+        font-size: 14px;
+    }
+    @media only screen and (max-width: 768px)
+    {
+        .cc-footer
+        {
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+        }
+        .cc-footer-copyright,
+        .cc-credit
         {
             text-align: center;
         }
