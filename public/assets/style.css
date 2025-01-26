@@ -621,6 +621,25 @@ p
     }
 /* RECOMMENDATIONS END */
 
+/* CONNECT */
+.cc-card-connect-title
+    {
+        font-size: 14px;
+        color: var(--primary);
+        margin-bottom: 8px;
+    }
+    a.cc-card-connect-btn 
+    {
+        color: var(--primary);
+        background: var(--border);
+        padding: 8px;
+        border-radius: 4px;
+        font-size: 14px;
+        display: flex;
+    }
+/* CONNECT END */
+
+
 /* FOOTER */
     .cc-footer
     {
