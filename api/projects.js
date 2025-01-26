@@ -1,15 +1,14 @@
 // api/projects.js
-
 const fs = require('fs');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const multer = require('multer');
 const path = require('path');
+const multer = require('multer');
+const bodyParser = require('body-parser');
 
-const filePath = '../projects.json';
-
-// Ensure 'uploads' directory exists inside the 'public' folder
+// Set up file path and uploads directory
+const filePath = path.resolve(__dirname, '../projects.json');
 const uploadsDir = path.resolve(__dirname, '../public/uploads');
+
+// Ensure the 'uploads' directory exists
 if (!fs.existsSync(uploadsDir)) {
     fs.mkdirSync(uploadsDir, { recursive: true });
 }
@@ -23,10 +22,11 @@ const storage = multer.diskStorage({
         cb(null, Date.now() + path.extname(file.originalname)); // Unique filenames
     },
 });
-
 const upload = multer({ storage: storage });
 
-module.exports = (req, res) => {
+// Main function for handling requests
+export default async function handler(req, res) {
+    // Parse incoming JSON body (use Vercel's body parsing automatically)
     if (req.method === 'POST') {
         upload.single('project-img')(req, res, (err) => {
             if (err) {
@@ -36,9 +36,9 @@ module.exports = (req, res) => {
             const projectData = req.body;
             const projects = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-            // Handle file data if an image was uploaded
+            // If an image is uploaded, include its path
             if (req.file) {
-                projectData.img = `..public/uploads/${req.file.filename}`; // Save the public path to the image
+                projectData.img = `/uploads/${req.file.filename}`; // Path relative to public
             }
 
             // Add new project data
@@ -50,9 +50,13 @@ module.exports = (req, res) => {
             res.status(201).json({ message: 'Project added successfully!' });
         });
     } else if (req.method === 'GET') {
-        const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        res.status(200).json(data);
+        try {
+            const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            res.status(200).json(data);
+        } catch (error) {
+            res.status(500).json({ message: 'Error reading projects data' });
+        }
     } else {
         res.status(405).json({ message: 'Method Not Allowed' });
     }
-};
+}
