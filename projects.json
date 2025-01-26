@@ -1,0 +1,312 @@
+[
+  {
+    "title": "TerraceUp",
+    "description": "Professional rooftop landscape construction services for builders, designers, and owners",
+    "url": "https://www.terraceup.com",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "terrace up (1).jpg"
+  },
+  {
+    "title": "Deer Solution",
+    "description": "Deer control repellent service for protecting plants and shrubs.",
+    "url": "https://www.deersolution.com",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "deer solution.jpg"
+  },
+  {
+    "title": "TriOrganics",
+    "description": "All-natural mosquito and tick control for safer, eco-friendly pest protection.",
+    "url": "https://www.triorganics.com",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "triorganics.jpg"
+  },
+  {
+    "title": "Don't Be an Entrepreneur",
+    "description": "Revolutionize your entrepreneurial journey with a new approach to building a successful, fulfilling business",
+    "url": "https://dontbeanentrepreneur.com",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "don't be an entrepreneur.jpg"
+  },
+  {
+    "title": "Kris Goodrich",
+    "description": "Level up your business with Kris Goodrich’s 'Don’t Be An Entrepreneur' – a fresh approach to success and innovation.",
+    "url": "https://krisgoodrich.com",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "kris goodrich.jpg"
+  },
+  {
+    "title": "A Rabbit's Foot",
+    "description": "A Rabbit's Foot offers an insider's look into the world of film, art and culture.",
+    "url": "https://a-rabbitsfoot.com",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "a rabbit's foot.jpg"
+  },
+  {
+    "title": "Accountants Coaching Community",
+    "description": "Empowering accountants to build impactful relationships and make a bigger difference for their clients, teams, and communities.",
+    "url": "https://accountantscoachingcommunity.com",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "accountants coaching.jpg"
+  },
+  {
+    "title": "Taverner Research Group",
+    "description": "Delivering successful projects for over 60 local government councils in NSW and Queensland.",
+    "url": "https://taverner.com.au",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "taverner.jpg"
+  },
+  {
+    "title": "Insources",
+    "description": "20+ years of experience delivering quality training and ensuring compliance for organizations, RTOs, and individuals.",
+    "url": "https://insources.com.au",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "insources.jpg"
+  },
+  {
+    "title": "Ciao Italia Express",
+    "description": "Ciao Italia offers a delicious Italian menu with online ordering for takeout or delivery.",
+    "url": "https://ciaoitaliaexpress.com.au",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "ciao italia.jpg"
+  },
+  {
+    "title": "Flexisource IT",
+    "description": "Offering customized IT solutions to drive digital transformation for Australian businesses.",
+    "url": "https://flexisourceit.com.au",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "flexisource.jpg"
+  },
+  {
+    "title": "Shroomy",
+    "description": "Shroomy offers Mushroom Extract gummies for enhanced wellness and natural benefits.",
+    "url": "",
+    "stacks": [
+      "Shopify"
+    ],
+    "img": "shroomy.jpg"
+  },
+  {
+    "title": "Mela",
+    "description": "Discover premium watermelon water, packed with electrolytes and antioxidants, perfect for hydration and staying refreshed all day.",
+    "url": "https://melawater.com/",
+    "stacks": [
+      "Shopify"
+    ],
+    "img": "mela.jpg"
+  },
+  {
+    "title": "Legacy Coach Sales",
+    "description": "Specializing in\nNew and Used Kellerman\nProfessional Vehicles.",
+    "url": "https://legacycoachsales.net/",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "legacy coach sales.jpg"
+  },
+  {
+    "title": "Platinum Funeral Coach",
+    "description": "Platinum Funeral Coach provides meticulously crafted and detailed hearses and limousines, delivering the highest quality professional vehicles for your needs.",
+    "url": "https://platinumfuneralcoach.com/",
+    "stacks": [
+      "WordPress",
+      "PHP"
+    ],
+    "img": "platinum funeral coach.jpg"
+  },
+  {
+    "title": "MK Coaches",
+    "description": "MK Coach specializes in innovative coachbuilding, offering high-quality hearses and limousines with unique design features and industry-leading craftsmanship.",
+    "url": "https://mkcoaches.com/",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "mk coaches.jpg"
+  },
+  {
+    "title": "PM Home Services",
+    "description": "From HVAC to appliance repairs, our handyman services help Massachusetts residential customers with all their home repair and improvement needs.",
+    "url": "https://pmhomeservices.com/",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "pmhomeservices.jpg"
+  },
+  {
+    "title": "Kellerman Professional Vehicles",
+    "description": "The Kellermans are honoured to work with a network of dealers and funeral homes that serve their communities.",
+    "url": "https://kellermanprofessionalvehicles.com",
+    "stacks": [
+      "WordPress",
+      "PHP"
+    ],
+    "img": "kellerman professional vehicles.jpg"
+  },
+  {
+    "title": "Green Knottz",
+    "description": "Offering a variety of Oregon-grown cannabis products, including flower, concentrates, and extracts from local producers",
+    "url": "https://greenknottz.com/",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "greenknotz.jpg"
+  },
+  {
+    "title": "Ak-mak Bakeries",
+    "description": "Ak-Mak Bakeries offers traditional Armenian baked goods, including cracker bread and pita, using the finest ingredients, continuing a family legacy since 1893.",
+    "url": "https://akmakbakeries.com/",
+    "stacks": [
+      "Shopify"
+    ],
+    "img": "akmak.jpg"
+  },
+  {
+    "title": "Adore The Ink Tattoo",
+    "description": "Lynn's premier tattoo shop where people come when they're looking for excellent service and amazing results.",
+    "url": "https://adoretheinktattoo.com/",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "adore the ink.jpg"
+  },
+  {
+    "title": "Black Market Art Co",
+    "description": "Art Prints & Apparel from Today’s Hottest Contemporary Artists",
+    "url": "https://blackmarketartco.com/",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "blackmarket.jpg"
+  },
+  {
+    "title": "CVD Labs",
+    "description": "Nutraceutical Supplements\nto prepare & recover from\nall of today's variants",
+    "url": "https://cvdsupplements.com/",
+    "stacks": [
+      "Shopify"
+    ],
+    "img": "cvd.jpg"
+  },
+  {
+    "title": "Coast Flight Training",
+    "description": "Learn from the best San Diego and San Marcos flight schools and start becoming a pilot today.",
+    "url": "https://iflycoast.com/",
+    "stacks": [
+      "WordPress",
+      "PHP"
+    ],
+    "img": "iflycoast.jpg"
+  },
+  {
+    "title": "Coast Air Center",
+    "description": "Coast Air Center provides San Diego with fixed base operator services, including private jet sales and aircraft hangars for all aviators!",
+    "url": "https://www.coastaircenter.com",
+    "stacks": [
+      "Webflow"
+    ],
+    "img": "coastair.jpg"
+  },
+  {
+    "title": "Field Van",
+    "description": "Field Van builds custom camper vans in Fresno, CA. We convert Ford Transit, Mercedes-Benz Sprinter, and Dodge Ram Promaster vans!",
+    "url": "https://fieldvan.com",
+    "stacks": [
+      "WordPress",
+      "PHP"
+    ],
+    "img": "fieldvan.jpg"
+  },
+  {
+    "title": "Ash Botanicals",
+    "description": "Island Bounty for Your Beauty. For those seeking a natural & holistic skin care option, our products are where pamper meets plant power.",
+    "url": "https://ashbotanicals.com",
+    "stacks": [
+      "Shopify"
+    ],
+    "img": "ash botanicals.jpg"
+  },
+  {
+    "title": "NuLids",
+    "description": "NuLids provides relief for dry, red, itchy, swollen eyes by targeting the meibomian glands in the eyelids. It can be used as a stand-alone product.",
+    "url": "https://www.nulids.com",
+    "stacks": [
+      "Shopify"
+    ],
+    "img": "nulids.jpg"
+  },
+  {
+    "title": "Mikuna",
+    "description": "Mikuna offers pure, nutrient-dense plant-based foods with a focus on transparency, sustainability, and community stewardship.",
+    "url": "https://mikunafoods.com/",
+    "stacks": [
+      "Shopify"
+    ],
+    "img": "mikuna.jpg"
+  },
+  {
+    "title": "Cowllagen",
+    "description": "At Cowllagen, we are dedicated to providing you with the highest quality grass-fed beef collagen sourced from naturally raised cows.",
+    "url": "https://cowllagen.com/",
+    "stacks": [
+      "Shopify"
+    ],
+    "img": "cowllagen.jpg"
+  },
+  {
+    "title": "Big Island Cleaners",
+    "description": "We are a local team of professional, reliable cleaners committed to maintaining high standards for a refreshing, comfortable space.",
+    "url": "https://bigislandcleaners.com",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "big island cleaners.jpg"
+  },
+  {
+    "title": "Robinson Hill Architecture, Inc.",
+    "description": "Whether creating a new commercial development, renovate an existing space, or redefine a brand identity, RHA is here to help.",
+    "url": "https://www.rhainc.net/",
+    "stacks": [
+      "Webflow"
+    ],
+    "img": "robinson hill architecture.png"
+  },
+  {
+    "title": "Element Fuels",
+    "description": "Employing proven technologies to produce low carbon intensity fuels. Scalable next generation clean fuels production.",
+    "url": "https://www.elementfuels.com",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "element fuels.png"
+  },
+  {
+    "title": "Broken Wrench Repair",
+    "description": "Full Range of Repair Services for all makes and models of trucks and cars.",
+    "url": "https://brokenwrenchrepair.com/",
+    "stacks": [
+      "WordPress"
+    ],
+    "img": "broken wrench.jpg"
+  }
+]

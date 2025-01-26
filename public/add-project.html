@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jommel Dalisaymo | Freelance Website Developer</title>
+
+        <!-- STYLE -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.15.10/sweetalert2.min.css" integrity="sha512-Of+yU7HlIFqXQcG8Usdd67ejABz27o7CRB1tJCvzGYhTddCi4TZLVhh9tGaJCwlrBiodWCzAx+igo9oaNbUk5A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="/assets/style.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+        
+
+        <div class="main-content" id="content">
+
+            <section class="cc-header">
+                <div class="cc-cert-header">
+                    <a href="/" class="cc-cert-header-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
+                        <span>Back to Home</span>
+                    </a>
+                    <h4 class="cc-cert-header-title">Add Project</h4>
+                </div>
+            </section>
+
+            <div class="cc-project-form card">
+                <div class="card-body">
+                    <form id="upload-project" enctype="multipart/form-data">
+                        <div class="cc-project-form-field-wrap mb-2">
+                            <label for="project-title" class="form-label">Project Title</label>
+                            <input type="text" name="project-title" class="form-control" id="project-title" required>
+                        </div>
+                        <div class="cc-project-form-field-wrap mb-2">
+                            <label for="project-description" class="form-label">Project Description</label>
+                            <textarea type="text" name="project-description" class="form-control" id="project-description" required></textarea>
+                        </div>
+                        <div class="cc-project-form-field-wrap mb-2">
+                            <label for="project-url" class="form-label">Project URL</label>
+                            <input type="url" name="project-url" class="form-control" id="project-url">
+                        </div>
+                        <div class="cc-project-form-field-wrap mb-2">
+                            <label for="project-stacks" class="form-label">Project Stacks</label>
+                            <input type="text" name="project-stacks" class="form-control" id="project-stacks" required>
+                            <span id="passwordHelpInline" class="form-text">
+                                Separate each stack using ",".
+                            </span>
+                        </div>
+                        <div class="cc-project-form-field-wrap mb-2">
+                            <label for="project-img" class="form-label">Project Image Preview</label>
+                            <input type="file" name="project-img" class="form-control" id="project-img" required>
+                        </div>
+                        <button type="submit" class="btn btn-success mt-3">Add Project</button>
+                    </form>
+                </div>
+            </div>
+
+            <footer class="cc-footer">
+                <p class="cc-footer-copyright">© <span class="cc-footer-year"></span> Jommel Dalisaymo. All rights reserved.</p>
+            </footer>
+        </div>
+
+        <script>
+            document.getElementById('upload-project').addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                const formData = new FormData(this);
+
+                const stacks = formData.get('project-stacks').split(',').map(stack => stack.trim());  // Clean up spaces around stacks
+
+                const projectData = {
+                    title: formData.get('project-title'),
+                    description: formData.get('project-description'),
+                    url: formData.get('project-url'),
+                    stacks: stacks,
+                    img: formData.get('project-img') ? formData.get('project-img').name : null,  // Handle the image file
+                };
+
+                try {
+                    const response = await fetch('http://localhost:3000/api/projects', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(projectData),
+                    });
+
+                    if (response.ok) {
+                        Swal.fire({
+                            title: "Success!",
+                            text: "Project Added Successfully!",
+                            icon: "success"
+                        }).then(() => {
+                            event.target.reset(); 
+                        });
+                    } else {
+                        Swal.fire({
+                            title: "Oops...",
+                            text: "Something went wrong. Please try again.",
+                            icon: "error"
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    Swal.fire({
+                        title: "Oops...",
+                        text: "Something went wrong. Please try again.",
+                        icon: "error"
+                    });
+                }
+            });
+
+        </script>
+    
+
+        <!-- SCRIPT -->
+        <script src="/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.15.10/sweetalert2.min.js" integrity="sha512-M60HsJC4M4A8pgBOj7oC/lvJXuOc9CraWXdD4PF+KNmKl8/Mnz6AH9FANgi4SJM6D9rqPvgQt4KRFR1rPN+EUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </body>
+</html>
