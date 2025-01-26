@@ -622,13 +622,25 @@ p
 /* RECOMMENDATIONS END */
 
 /* CONNECT */
-.cc-card-connect-title
+    .cc-card-connect-row
+    {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
+    .cc-card-connect-content-wrap .cc-card-connect-card
+    {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 12px;
+    }
+    .cc-card-connect-title
     {
         font-size: 14px;
         color: var(--primary);
         margin-bottom: 8px;
     }
-    a.cc-card-connect-btn 
+    .cc-card-connect-btn 
     {
         color: var(--primary);
         background: var(--border);
@@ -636,6 +648,16 @@ p
         border-radius: 4px;
         font-size: 14px;
         display: flex;
+    }
+    .cc-card-connect-socials-wrap
+    {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 5px;
+    }
+    .cc-card-connect-social
+    {
+        font-size: 22px;
     }
 /* CONNECT END */
 
